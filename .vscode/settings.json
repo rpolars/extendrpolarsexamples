@@ -4,4 +4,6 @@
         "./src/rust/Cargo.toml",
         //"py-polars"
     ],
+    "workbench.colorTheme": "Abyss",
+    "terminal.integrated.tabs.defaultColor": null,
 }

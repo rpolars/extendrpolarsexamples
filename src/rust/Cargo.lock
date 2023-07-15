@@ -365,7 +365,7 @@ dependencies = [
 [[package]]
 name = "extendr_polars"
 version = "0.1.0"
-source = "git+https://github.com/rpolars/extendr_polars#42dd89d3313fd3cfb1fdf4be616cd75ebebdb1f9"
+source = "git+https://github.com/rpolars/extendr_polars#6bf229cec59d4050429ed5143da85bb3fcb0622f"
 dependencies = [
  "arrow2",
  "extendr-api",

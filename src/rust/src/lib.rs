@@ -9,15 +9,13 @@ fn hello_world() -> Robj {
     use pl::*;
     let df = df! [
         "names" => ["a", "b", "c"],
-        "values" => [1, 2, 3],
+        "values" => [1, 2, 6],
         "values_nulls" => [Some(1), None, Some(3)]
     ]
     .unwrap();
     let wdf = ep::WrapDataFrame(df);
-
+    dbg!(&wdf);
     let robj = wdf.export_stream().unwrap();
-
-    dbg!(wdf);
     robj
 }
 
