@@ -1,44 +1,71 @@
-# Minimal Example of Calling Rust from R
-
-[![R build status](https://github.com/extendr/extendrpolarsexamples/workflows/R-CMD-check/badge.svg)](https://github.com/extendr/extendrpolarsexamples/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-This is a template package to demonstrate how to call Rust from R using the [extendr-api](https://crates.io/crates/extendr-api) crate.
+# TEMPLATE: extend polars (the R package) with rust
 
 
 ## Installation
 
-Before you can install this package, you need to install a working Rust toolchain. We recommend using [rustup.](https://rustup.rs/)
-
-On Windows, you'll also have to add the `x86_64-pc-windows-gnu` target:
-```
-rustup target add x86_64-pc-windows-gnu
+Install R package polars e.g. from binary. Also needed for end user
+```R
+  install.packages("polars", repos = "https://rpolars.r-universe.dev")
 ```
 
-Once Rust is working, you can install this package via:
+Install rextendr R package to assist write R bindings for your rust project.
+See extendr github page or visit the discord to ask questions.
+```R
+  install.packages("rextendr")
+```
+s
+
+### System dependencies
+
+To install the full version of rust-polars you will need rust nightly e.g. this version. 
+Stable is also possible, check with rust-polars docs.
+
+- Install [`rustup`](https://rustup.rs/), the cross-platform Rust
+  installer. Then:
+
+  ``` sh
+  rustup toolchain install nightly-2023-05-07
+  rustup default nightly-2023-05-07
+  ```
+
+- Windows: Make sure the latest version of
+  [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed
+  and on your PATH.
+
+- MacOS: Make sure [`Xcode`](https://developer.apple.com/support/xcode/)
+  is installed.
+
+- Install [CMake](https://cmake.org/) and add it to your PATH.
+
+
+## Build templates
+Once Rust is working, you can build this 
 ```r
-remotes::install_github("extendr/extendrpolarsexamples")
+remotes::install_github("rpolars/extendrpolarsexamples")
 ```
 
 After installation, the following should work:
 ```r
 library(extendrpolarsexamples)
 
-hello_world()
-#> [1] "Hello world!"
+# zero-copy export a rust-polars DataFrame to valid r-polars DataFrame
+extendrpolarsexamples::make_df()
+┌───────┬────────┬──────────────┐
+│ names ┆ values ┆ values_nulls │
+│ ---   ┆ ---    ┆ ---          │
+│ str   ┆ i32    ┆ i32          │
+╞═══════╪════════╪══════════════╡
+│ a     ┆ 1      ┆ 1            │
+│ b     ┆ 2      ┆ null         │
+│ c     ┆ 6      ┆ 3            │
+└───────┴────────┴──────────────┘
 ```
 
 ## Development
 
-### Install rextendr
-
-You will need [rextendr](https://github.com/extendr/rextendr) package to generate wrappers.
-Please install it before proceeding to the next step.
-
-``` r
-remotes::install_github("extendr/rextendr")
-```
-
+ - fork this template rpolars/extendrpolarsexamples
+ - clone your fork
+ 
 ### Generate wrappers
 
 When you make either of the following changes to the Rust source code, you'll need to regenerate the wrappers.
@@ -50,11 +77,13 @@ When you make either of the following changes to the Rust source code, you'll ne
 This can be done by:
 
 ``` r
-rextendr::document()
+  rextendr::document()
 ```
 
 Which will compile the Rust code as well as updating documentation.
 
-## Creating your own project
+## More rextendr help
 
 For a fully worked out demonstration of how to create a Rust + R library see [here](https://extendr.github.io/rextendr/articles/package.html).
+
+
