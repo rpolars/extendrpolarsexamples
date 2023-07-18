@@ -1,14 +1,13 @@
-Package: helloextendr
-Title: Minimal Example of Calling Rust from R
+Package: extendrpolarsexamples
+Title: Template Package Extending 'polars' Package with Rust.
 Version: 0.1.0
-Authors@R: c(
-    person("Andy", "Thomason", , "andy@andythomason.com", c("aut")),
-    person("Claus O.", "Wilke", , "wilke@austin.utexas.edu", c("aut", "cre"),
-      comment = c(ORCID = "0000-0002-7470-9261"))
-  )
+Authors@R: 
+  c(person("Soren", "Welling", , "sorhawell@gmail.com", role = c("aut", "cre")))
 Description:
-  This is a template package to demonstrate how to call
-  Rust from R using the 'extendr-api' crate.
+  Use this tempplate package as a starting point to interface rust projects with the
+  polars package. We strive for backward/forward version compatability.
+  This package uses the rust crate extendr_polars to perform conversions.
+  See `src/rust/src/lib.rs` for how to interface from rust.s
 License: MIT + file LICENSE
 SystemRequirements: Rust tool chain w/ cargo, libclang/llvm-config
 Encoding: UTF-8
@@ -17,5 +16,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests:
     rmarkdown,
-    testthat
-Config/rextendr/version: 0.3.1.9000
+    testthat  (>= 3.0.0),
+Config/testthat/edition: 3
+Config/rextendr/version: 0.3.0

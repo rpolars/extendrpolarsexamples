@@ -4,16 +4,17 @@
 
 #
 # This file was created with the following call:
-#   .Call("wrap__make_helloextendr_wrappers", use_symbols = TRUE, package_name = "helloextendr")
+#   .Call("wrap__make_extendrpolarsexamples_wrappers", use_symbols = TRUE, package_name = "extendrpolarsexamples")
 
 #' @docType package
 #' @usage NULL
-#' @useDynLib helloextendr, .registration = TRUE
+#' @useDynLib extendrpolarsexamples, .registration = TRUE
 NULL
 
-#' Return string `"Hello world!"` to R.
+#' show case zero copy export from rust-polars to r-polars
+#' @details conversion via arrow stream such to ensure version compatability
 #' @export
-hello_world <- function() .Call(wrap__hello_world)
+make_df <- function() .Call(wrap__make_df)
 
 
 # nolint end

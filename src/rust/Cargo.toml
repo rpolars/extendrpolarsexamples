@@ -1,16 +1,14 @@
 [package]
-name = 'helloextendr'
+name = 'extendrpolarsexamples'
 publish = false
-version = '0.3.0'
+version = '0.1.0'
 edition = '2021'
 
 [lib]
 crate-type = [ 'staticlib' ]
-name = 'helloextendr'
-
+name = 'extendrpolarsexamples'
 
 [dependencies]
-arrow2 = {git = "https://github.com/jorgecarleitao/arrow2", commit = "ac28bc91ff87867f2d8f1cf1fbe6008af32d53ce"}
-extendr-api = '*'
+extendr-api = "*"
 extendr_polars = {git = "https://github.com/rpolars/extendr_polars"}
 polars = "*"
