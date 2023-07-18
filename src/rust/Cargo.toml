@@ -10,6 +10,7 @@ name = 'helloextendr'
 
 
 [dependencies]
+arrow2 = {git = "https://github.com/jorgecarleitao/arrow2", commit = "ac28bc91ff87867f2d8f1cf1fbe6008af32d53ce"}
 extendr-api = '*'
 extendr_polars = {git = "https://github.com/rpolars/extendr_polars"}
 polars = "*"
