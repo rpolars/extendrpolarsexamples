@@ -43,7 +43,6 @@ fn test_round_trip(rdf: Robj) -> Result<Robj> {
     ep::export_dataframe::to_rpolars_dataframe(df)
 }
 
-
 // Macro to generate exports.
 // This ensures exported functions are registered with R.
 // See corresponding C code in `entrypoint.c`.
