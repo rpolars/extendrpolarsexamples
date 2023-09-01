@@ -10,5 +10,6 @@ name = 'extendrpolarsexamples'
 
 [dependencies]
 extendr-api = "*"
-extendr_polars = {git = "https://github.com/rpolars/extendr_polars"}
+#extendr_polars = {git = "https://github.com/rpolars/extendr_polars"}
+extendr_polars = {path = "../../../extendr-polars/extendr-polars"}
 polars = "*"

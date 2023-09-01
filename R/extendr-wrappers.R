@@ -11,10 +11,25 @@
 #' @useDynLib extendrpolarsexamples, .registration = TRUE
 NULL
 
-#' show case zero copy export from rust-polars to r-polars
-#' @details conversion via arrow stream such to ensure version compatability
+#' export rpolars DataFrame from rust to rpolars
+#' @return r-polars DataFrame
+#' @details this function requires r-polars polars package >= 0.8.0.
 #' @export
-make_df <- function() .Call(wrap__make_df)
+export_as_rpolars_df <- function() .Call(wrap__export_as_rpolars_df)
+
+#' import rpolars DataFrame to rust and print back to R terminal
+#' @param rdf r-polars DataFrame
+#' @return NULL
+#' @details this function requires r-polars polars package >= 0.8.0
+#' @export
+import_rpolars_df_and_print <- function(rdf) .Call(wrap__import_rpolars_df_and_print, rdf)
+
+#' import rpolars DataFrame to rust and export again
+#' @param rdf rpolars dataframe
+#' @return rpolars dataframe
+#' @details this function requires r-polars polars package >= 0.8.0
+#' @export
+test_round_trip <- function(rdf) .Call(wrap__test_round_trip, rdf)
 
 
 # nolint end
